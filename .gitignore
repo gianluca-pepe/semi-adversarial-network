@@ -1,4 +1,9 @@
 dataset/
+# ignore all weights but those required
+weights/*
+!weights/autoencoder_pretrain_weights.h5
+!weights/genderclassifier_pretrain_weights.h5
+!weights/facematcher_pretrain_weights.h5
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

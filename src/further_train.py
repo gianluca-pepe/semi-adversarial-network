@@ -8,7 +8,8 @@ we save both weigths of the entire newtork and weights if the autoencoder
 Only weights of the autoencoder are useful given that is the only trainable component of the SAN
 and we use these weingts during the evaluation phase.
 
-Weights of the SAN contain all weights of all the SAN components: the pre-loaded weights of the untrainable components and the weights of the autoencoder.
+Weights of the SAN contain all weights of all the SAN components: the pre-loaded weights of the untrainable 
+components and the weights of the autoencoder.
 '''
 
 from datetime import datetime
@@ -20,16 +21,8 @@ from modules.autoencoder import AutoEncoder
 from modules.genderclassifier import GenderClassifier
 from modules.facematcher import VGGFace
 from modules.san import SemiAdversarial
-from dataset_loader import DatasetLoader
-
-
-def save_weights(model,name):
-    filename = datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
-    filename = str(filename) + ".h5"
-    filename = name + '-' + filename
-    filename = path.join('..', 'weights', filename)
-    model.save_weights(filename)
-
+from utils.dataset_loader import DatasetLoader
+from utils.util import save_weights
 
 AE = AutoEncoder(mode='further_train')
 GC = GenderClassifier()
@@ -71,15 +64,7 @@ try:
 
 except KeyboardInterrupt:
     # Save the autoencoder weights
-    save_weights(SAN.autoencoder, 'autoencoder')
-
-    # Save the semiadversarial weights
-    save_weights(SAN.model, 'SemiAdversarial')
-
-
+    save_weights(SAN.autoencoder, 'autoencoder_further_train')
 else:
     # Save the autoencoder weights
-    save_weights(SAN.autoencoder, 'autoencoder')
-
-    # Save the semiadversarial weights
-    save_weights(SAN.model, 'SemiAdversarial')
+    save_weights(SAN.autoencoder, 'autoencoder_further_train')

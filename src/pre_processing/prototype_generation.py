@@ -19,7 +19,7 @@ def create_prototypes(src, dst):
             create_neutral_prototype(dst)
         else:
             # Access all JPG files in directory
-            imgpath = os.path.join(src, label)
+            imgpath = src['train_'+label]
             allfiles = os.listdir(imgpath)
             imlist = [filename for filename in allfiles if filename[-4:] in [".jpg", ".JPG"]]
 

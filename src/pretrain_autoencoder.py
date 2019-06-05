@@ -3,17 +3,10 @@ This script has been created by Bruno Marino and Gianluca Pepe
 '''
 
 from datetime import datetime
-from dataset_loader import DatasetLoader
+from utils.dataset_loader import DatasetLoader
 from modules.autoencoder import AutoEncoder
 from os import path
-
-
-def save_weights(model, name):
-    filename = datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
-    filename = str(filename) + ".h5"
-    filename = name + '-' + filename
-    filename = path.join('..', 'weights', filename)
-    model.save_weights(filename)
+from utils.util import save_weights
 
 
 ds = DatasetLoader()
