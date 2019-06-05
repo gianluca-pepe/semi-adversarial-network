@@ -9,6 +9,41 @@ Our work is based on the preprocessed **Celeb-A** dataset provided by
 For more details about this project read our final report.
 ## Usage
 
+### Dataset
+First you need to download and preprocess dataset.
+
+#### CelebA 
+Our work is based on the **Celeb-A** dataset provided by 
+[iPRoBe-lab's implementation](https://github.com/iPRoBe-lab/semi-adversarial-networks)
+
+- Download training set: [here](https://drive.google.com/file/d/1sd3TyefiPqvxIdoGl7Ysm3rxnjSDgP5h/)
+- Download test set: [here](https://drive.google.com/open?id=12m2oQzkt3aXxOSPSRugqGwwertVA9pAa)
+
+Place both `images-dpmcrop-train` and `images-dpmcrop-test` folders in repo's root and just run  
+```
+cd src/pre_processing
+python prepare_dataset.py
+```
+#### Notes
+At the end of pre-processing the `dataset` folder will be structured as follows:
+
+``` 
+dataset
+|
++-- celebA
+|   |   
+|   +-- test
+|   |   +-- female
+|   |   +-- male
+|   +-- train
+|   |   +-- female
+|   |   +-- male
+|   +-- validation
+|   |   +-- female
+|   |   +-- male
++-- prototype
+```
+
 ### Pre Training
 In this phase models of the Semi-Adversarial-Network are trained independently.
 AutoEncoder and Gender-Predictor have been pre-trained by us.
