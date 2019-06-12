@@ -22,7 +22,7 @@ Our work is based on the **Celeb-A** dataset provided by
 Place both `images-dpmcrop-train` and `images-dpmcrop-test` folders in repo's root and just run  
 ```
 cd src/pre_processing
-python prepare_dataset.py
+python prepare_dataset_celeba.py
 ```
 #### Notes
 At the end of pre-processing the `dataset` folder will be structured as follows:

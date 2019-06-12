@@ -25,7 +25,7 @@ from utils.dataset_loader import DatasetLoader
 from utils.util import save_weights
 
 AE = AutoEncoder(mode='further_train')
-GC = GenderClassifier()
+GC = GenderClassifier(mode='further_train')
 FM = VGGFace()
 
 ds = DatasetLoader()

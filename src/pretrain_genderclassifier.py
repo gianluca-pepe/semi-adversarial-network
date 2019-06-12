@@ -25,7 +25,6 @@ try:
                            steps_per_epoch=2355,  # 2355
                            epochs=10, verbose=1, workers=0, callbacks=[callback])  # 10 epoch
 except KeyboardInterrupt:
-    # salvo il modello aggiungendo al nome quando e' stato creato
     save_weights(NN.model, 'genderclassifier')
 else:
     save_weights(NN.model, 'genderclassifier')

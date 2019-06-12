@@ -13,7 +13,7 @@ import pathlib
 
 
 class GenderClassifier():
-    def __init__(self, input_shape=[224, 224, 1]):
+    def __init__(self, mode='pretrain', input_shape=[224, 224, 1]):
         self.model = Sequential()
 
         self.model.add(Conv2D(32, kernel_size=5, input_shape=input_shape))
@@ -51,6 +51,12 @@ class GenderClassifier():
         self.model.add(Activation('sigmoid', name='pred_output'))
 
         self.model.add(Flatten())
+
+        if mode != 'pretrain':
+            # Load weights for this model
+            self.model.load_weights(str(pathlib.Path('..', 'weights', 'genderclassifier_pretrain_weights.h5')))
+            self.model.trainable = False
+
 
         self.model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['acc'])
 

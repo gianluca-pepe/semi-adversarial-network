@@ -8,21 +8,21 @@ Semi-Adversarial model (Further-Train)
 
 import tensorflow as tf
 import pathlib, random, os
-
 from tensorflow.python.keras import backend as K
-
 # provide one hot encoding of the label
 from tensorflow.python.keras.utils import to_categorical
+from utils.util import RepoPaths
 
+paths = RepoPaths()
 # Path of the dataset
-DATASET_PATH = os.path.join('..', 'dataset')
+DATASET_PATH = paths.ds_celeb
 
 LABELS = dict({'female': 0, 'male': 1})
 
 # Prototypes path
-FEMALE_PATH = os.path.join(DATASET_PATH, 'prototype', 'female.jpg')
-MALE_PATH = os.path.join(DATASET_PATH, 'prototype', 'male.jpg')
-NEUTRAL_PATH = os.path.join(DATASET_PATH, 'prototype', 'neutral.jpg')
+FEMALE_PATH = os.path.join(paths.proto, 'female.jpg')
+MALE_PATH = os.path.join(paths.proto, 'male.jpg')
+NEUTRAL_PATH = os.path.join(paths.proto, 'neutral.jpg')
 
 SAMEPROTOTYPE = dict({'female': FEMALE_PATH, 'male': MALE_PATH})
 OPPOSITEPROTOTYPE = dict({'female': MALE_PATH, 'male': FEMALE_PATH})
@@ -151,28 +151,17 @@ class DatasetLoader:
     def __init__(self, modality="train"):
 
         self.batch_size = 32
-        self.ds_root = DATASET_PATH
-        self.ds_val_root = os.path.join(DATASET_PATH, 'validation')
+        self.ds_val_root = paths.celeba['valid']
 
-        if modality == "train":
-            self.ds_root = os.path.join(DATASET_PATH, 'train')
-
-        elif modality == "test":
-            self.ds_root = os.path.join(DATASET_PATH, 'test')
-
-
+        if modality == "train" or modality == "test":
+            self.ds_root = paths.celeba[modality]
         else:
-
             raise TypeError("Dataset modality can be only 'train' or 'test', other values are not accepted.")
 
         all_image_paths = []
-
         all_image_labels = []
-
         all_image_same = []
-
         all_image_neutral = []
-
         all_image_opposite = []
 
         # build an array of paths (relative paths)
@@ -221,7 +210,6 @@ class DatasetLoader:
 
         # build an array of paths (relative paths)
         for label in pathlib.Path(self.ds_val_root).iterdir():
-
             for image_path in pathlib.Path(self.ds_val_root, label.name).iterdir():
                 all_image_paths.append(str(image_path))
 

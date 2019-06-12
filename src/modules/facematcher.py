@@ -13,7 +13,7 @@ from tensorflow.python.keras.utils.vis_utils import plot_model
 from tensorflow.python.keras.optimizers import SGD
 from tensorflow.python.keras.models import model_from_json
 from tensorflow.python.keras import backend as K
-
+import pathlib
 
 class VGGFace():
     def __init__(self, input_shape=[224, 224, 1]):

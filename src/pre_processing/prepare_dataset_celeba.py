@@ -72,8 +72,8 @@ def split_images(src, celeba_path):
 paths = RepoPaths()
 src = os.path.join(paths.root, 'images-dpmcrop-')
 # split images in male and female folder for both train and test set
-#split_images(src, paths.celeba)
+split_images(src, paths.celeba)
 # Create validation set from training set
 create_validation(paths.celeba)
 # generate the three prototype images
-#create_prototypes(paths.celeba, paths.proto)
+create_prototypes(paths.celeba, paths.proto)

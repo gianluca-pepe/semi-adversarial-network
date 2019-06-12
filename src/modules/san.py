@@ -71,9 +71,6 @@ class TotalLoss(Layer):
 class SemiAdversarial:
     def __init__(self, autoencoder, gender_classifier, face_matcher):
 
-        gender_classifier.trainable = False
-        face_matcher.trainable = False
-
         self.autoencoder = autoencoder
         self.models_dir = '../model'
 
