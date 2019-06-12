@@ -6,7 +6,7 @@ Keras implementation of the work done in:
 Our work is based on the preprocessed **Celeb-A** dataset provided by 
 [iPRoBe-lab's implementation](https://github.com/iPRoBe-lab/semi-adversarial-networks)
 
-For more details about this project read our final report.
+For more details about this project read our final [report](https://github.com/gianluca-pepe/semi-adversarial-network/blob/master/report.pdf).
 ## Usage
 
 ### Dataset
@@ -43,7 +43,7 @@ dataset
 |   |   +-- male
 +-- prototype
 ```
-
+---
 ### Pre Training
 In this phase models of the Semi-Adversarial-Network are trained independently.
 AutoEncoder and Gender-Predictor have been pre-trained by us.
@@ -62,7 +62,7 @@ python pretrain_genderclassifier.py
 
 _Face-Matcher uses downloaded weights (in the same way of the reference paper) during Further-Training so we didn't need to pre-train it._
 
-Obtainerd weights can be found here:
+Obtained weights can be found here:
 https://drive.google.com/file/d/1OgnvG74Qru9tbeXImUldcr60HuJoLrov/view?usp=sharing
 
 ---
