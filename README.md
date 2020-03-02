@@ -95,3 +95,7 @@ Obtained weights will be saved in  `/weights` with a timestamp attached to the f
 https://drive.google.com/file/d/1O4hjK8BBsD922SVnFEkPDitE4MEZ5ss8/view?usp=sharing
 
 
+
+This project was developed with passion by: Bruno Marino & Gianluca Pepe.
+
+
